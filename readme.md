@@ -56,6 +56,17 @@ protected $middlewareGroups = [
 ];
 ~~~
 
+Alternatively push the `Inertia\Middleware` to your `web` middleware from within your `PackageServiceProvider`:
+
+~~~php
+public function boot()
+{
+    // ...
+    $this->app['router']->pushMiddlewareToGroup('web', \Inertia\Middleware::class)
+}
+~~~
+
+
 ## Making Inertia responses
 
 To make an Inertia response, use `Inertia::render()`. This function takes two arguments, the component name, and the component data (props).
